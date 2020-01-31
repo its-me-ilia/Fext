@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "FaceDrop Chrome Extension",
+    "version": "0.1",
+    "description": "FaceDrop lets you see who visited your Facebook profile",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "content_security_policy": "script-src 'self' https://connect.facebook.net/en_US/sdk.js; object-src 'self'",
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": ["content.js"]
+        }
+    ],
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": ["tabs", "identity","<all_urls>"]
+}
